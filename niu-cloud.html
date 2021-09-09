@@ -1,0 +1,61 @@
+<script type="text/javascript">
+  RED.nodes.registerType('niu-cloud', {
+    category: 'advanced',
+    color: '#DD6E7D',
+    defaults: {
+      name: {
+        value: '',
+      },
+      client: {
+        value: '',
+        type: 'niu-cloud-client',
+        required: true,
+      },
+      action: {
+        value: '-',
+        required: true,
+        validate: RED.validators.regex(/^[^-].+$/),
+      },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: 'niu-logo.png',
+    label() {
+      if (this.action && this.action !== '-') return this.action;
+      return this.name || 'niu-cloud';
+    },
+
+  });
+
+  
+</script>
+
+<script type="text/x-red" data-template-name="niu-cloud">
+    <div class="form-row" id="websocket-client-row">
+        <label for="node-input-client"><i class="fa fa-bookmark"></i> <span>Connection</span></label>
+        <input type="text" id="node-input-client">
+    </div>
+    <div class="form-row">
+        <label for="node-input-action"><i class="fa fa-list"></i> <span>Action</span></label>
+        <select id="node-input-action" style="width:70%">
+            <option value="-" selected>Choose an action...</option>
+            <option value="vehicles" >Vehicles</option>
+            <option value="motor-info" >Motor info</option>
+            <option value="overall-tally" >Overall Tally</option>
+            <option value="battery-info" >Battery info</option>
+            <option value="battery-health" >Battery health</option>
+            <option value="fw-version" >FW Version</option>
+            <option value="vehicle-pos" >Vehicle position</option>
+            <option value="update-info" >Update info</option>
+            <option value="tracks" >Tracks</option>
+        </select>
+     </div>
+    <div class="form-row">
+      <label for="node-config-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
+      <input type="text" id="node-config-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="niu-cloud">
+    <p>A simple node that retrieves information from the NIU Cloud </p>
+</script>

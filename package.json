@@ -1,0 +1,39 @@
+{
+  "name": "node-red-contrib-niu-cloud",
+  "version": "1.0.0",
+  "description": "A Node-RED library for connect to NIU Cloud for your electric scooter",
+  "scripts": {
+    "lint": "eslint \"/**/*.{js,json,html}\"",
+    "lintfix": "eslint --fix \"/**/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gabriele Lauricella <gab.lau@gmail.com> (https://github.com/gablau)",
+  "license": "MIT",
+  "dependencies": {
+    "niu-cloud-connector": "github:gablau/niu-cloud-connector#afb1c60e9eea1a2f0b47c8b668ecfdbe8f2706aa"
+  },
+  "devDependencies": {
+    "eslint": "^6.x.x",
+    "eslint-config-airbnb-base": "^14.x.x",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.x.x",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-progress": "github:gablau/eslint-plugin-progress"
+  },
+  "keywords": [
+    "node-red",
+    "niu",
+    "niu-cloud",
+    "e-scooter",
+    "ev",
+    "electric",
+    "scooter",
+    "vehicle"
+  ],
+  "node-red": {
+    "nodes": {
+      "niu-cloud-client": "niu-cloud-client.js",
+      "niu-cloud": "niu-cloud.js"
+    }
+  }
+}

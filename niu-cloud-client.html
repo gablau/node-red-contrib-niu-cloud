@@ -1,0 +1,208 @@
+<script type="text/javascript">
+  RED.nodes.registerType('niu-cloud-client', {
+    category: 'config',
+    credentials: {
+      niu_user: {
+        type: 'text',
+        required: true,
+      },
+      niu_password: {
+        type: 'password',
+        required: true,
+      },
+      countryCode: {
+        type: 'text',
+        required: true,
+      },
+      vehicleSN: {
+        type: 'text',
+        required: true,
+        validate: RED.validators.regex(/^[a-zA-Z0-9]{5,}$/),
+      },
+    },
+    defaults: {
+      dbg_low: {
+        value: false,
+        required: false,
+      },
+      name: {
+        value: '',
+        required: false,
+      },
+    },
+  
+    label() {
+      return this.name;
+    },
+    oneditprepare() {
+      const that = this;
+
+      function tokenValid() {
+        $('#node-config-token-unknow').hide();
+        $('#node-config-token-valid').show();
+        $('#node-config-token-invalid').hide();
+      }
+
+      function tokenInvalid() {
+        $('#node-config-token-unknow').hide();
+        $('#node-config-token-valid').hide();
+        $('#node-config-token-invalid').show();
+      }
+
+      function tokenUnknow() {
+        $('#node-config-token-unknow').show();
+        $('#node-config-token-valid').hide();
+        $('#node-config-token-invalid').hide();
+      }
+
+      function loadVehicles(vehicles, currVehicleSN) {
+        const $select = $('#node-config-input-vehicleSN');
+
+        // remove options
+        $('#node-config-input-vehicleSN option').each((idx, item) => {
+          if ($(item).val() !== '-') {
+            $(item).remove();
+          }
+        });
+
+        // popolate options
+        vehicles.forEach((vehicle) => {
+          $select.append($('<option>', {
+            value: vehicle.sn,
+            text: `${vehicle.type} - ${vehicle.name} - ${vehicle.sn}`,
+          }));
+        });
+
+        // select option
+        if (currVehicleSN !== undefined && currVehicleSN !== '') {
+          $select.val(currVehicleSN).change();
+          const $name = $('#node-config-input-name');
+          if ($name.val() === '' && $select.val() !== '-') {
+            $name.val($select.find('option:selected').text());
+          }
+        } else $select.val('-').change();
+      }
+
+      $('#refresh-token').click((e) => {
+        e.preventDefault(); // don't trigger normal click event
+
+        if ($('#node-config-input-niu_user.input-error').length > 0
+      || $('#node-config-input-niu_password.input-error').length > 0
+      || $('#node-config-input-countryCode.input-error').length > 0) {
+          return;
+        }
+
+        const data = {
+          niu_user: $('#node-config-input-niu_user').val(),
+          niu_password: $('#node-config-input-niu_password').val(),
+          countryCode: $('#node-config-input-countryCode').val(),
+        };
+
+        tokenUnknow();
+  
+        $.post(`niu/token/${that.id}`, data, (result) => {
+          const currVehicleSN = (that.credentials && that.credentials.vehicleSN) ? that.credentials.vehicleSN : '-';
+          loadVehicles(result, currVehicleSN);
+          tokenValid();
+        })
+          .fail(() => {
+            tokenInvalid();
+            // eslint-disable-next-line no-alert
+            alert('Retrive token error, check your credential');
+          });
+      });
+
+      $('#get-vehicles').click((e) => {
+        e.preventDefault(); // don't trigger normal click event
+        $.get(`niu/vehicles/${that.id}`, null, (result) => {
+          const currVehicleSN = (that.credentials && that.credentials.vehicleSN) ? that.credentials.vehicleSN : '-';
+          loadVehicles(result, currVehicleSN);
+          tokenValid();
+        })
+          .fail(() => {
+            tokenInvalid();
+          });
+      });
+
+      // load form data
+      setTimeout(() => {
+        $('#get-vehicles').trigger('click');
+      }, 200);
+
+      $('#node-config-input-vehicleSN').change(() => {
+        const $select = $('#node-config-input-vehicleSN');
+        const selectText = $select.find('option:selected').text();
+        const selectValue = $select.find('option:selected').val();
+        const $name = $('#node-config-input-name');
+        const nameValue = $name.val();
+
+        if (nameValue === '' && selectValue !== '-') {
+          $name.val(selectText);
+        }
+      });
+    },
+    oneditsave() {
+      const trimFields = [
+        'user',
+        'password',
+        'countryCode',
+        'vehicleSN',
+      ];
+      trimFields.forEach((field) => {
+        let v = $(`#node-config-input-${field}`).val();
+        v = v.trim();
+        $(`#node-config-input-${field}`).val(v);
+      });
+    },
+  });
+</script>
+
+<script type="text/x-red" data-template-name="niu-cloud-client">
+    <div class="form-row">
+        <label for="node-config-input-niu_user"><i class="fa fa-bookmark"></i> <span>User</span></label>
+        <input type="text" id="node-config-input-niu_user" placeholder="your username">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-niu_password"><i class="fa fa-key"></i> <span>Password</span></label>
+        <input type="password" id="node-config-input-niu_password" placeholder="your password">
+    </div>
+    <div class="form-row">
+      <label for="node-config-input-countryCode"><i class="fa fa-phone"></i> <span>Country Code</span></label>
+      <input type="text" id="node-config-input-countryCode" placeholder="Ex. +39">
+  </div>
+
+    <div class="form-row">
+        <label for="node-config-input-token"><i class="fa fa-bookmark"></i> <span>Token</span></label>
+        <div style="width: 60px;display: inline-block;font-weight: bold;">
+          <span id="node-config-token-valid" style="display:none;color:green;">Valid</span>
+          <span id="node-config-token-invalid" style="display:none;color:red;">Invalid</span>
+          <span id="node-config-token-unknow" style="color:grey;">Unknow</span>
+        </div>
+        <button type="button" class="red-ui-button" id="refresh-token" title="Refresh Token"><i class="fa fa-refresh"></i>&nbsp;Token</button>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-vehicleSN"><i class="fa fa-bookmark"></i> <span>Vehicle S/N</span></label>
+        <select id="node-config-input-vehicleSN" style="width: auto;">
+          <option value="-" selected>Select...</option>
+        </select>
+        <button type="button" class="red-ui-button" id="get-vehicles" title="Refresh Vehicles"><i class="fa fa-refresh"></i></button>
+    </div>
+    
+    <div class="form-row">
+      <label for="node-config-input-config"><i class="fa fa-bug"></i> <span>Settings</span></label>
+      <ul style="width: 70%;display: inline-block;vertical-align: top;list-style-type: none;-webkit-column-count: 3;-moz-column-count: 3;column-count: 3;margin: 0 0 0 0;">
+        <li>
+          <input type="checkbox" id="node-config-input-dbg_low" value="all" style="width: auto; vertical-align: top;">Debug Logs</input>
+        </li>
+      </ul>  
+    </div>
+    
+    <div class="form-row">
+      <label for="node-config-input-name"><i class="fa fa-tag"></i> <span>Name</span></label>
+      <input type="text" id="node-config-input-name" data-i18n="[placeholder]node-red:common.label.name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="niu-cloud-client">
+  <p>A simple node that retrieves information from the NIU Cloud </p>
+</script>
