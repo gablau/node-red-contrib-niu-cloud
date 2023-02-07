@@ -1,14 +1,22 @@
 {
   "name": "node-red-contrib-niu-cloud",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Node-RED library for connect to NIU Cloud for your electric scooter",
   "scripts": {
     "lint": "eslint \"/**/*.{js,json,html}\"",
     "lintfix": "eslint --fix \"/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gablau/node-red-contrib-niu-cloud.git"
+  },
   "author": "Gabriele Lauricella <gab.lau@gmail.com> (https://github.com/gablau)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gablau/node-red-contrib-niu-cloud/issues"
+  },
+  "homepage": "https://github.com/gablau/node-red-contrib-niu-cloud",
   "dependencies": {
     "niu-cloud-connector": "github:gablau/niu-cloud-connector#79a55d88d9d82b5c742fec04aae451481f5337ff"
   },
