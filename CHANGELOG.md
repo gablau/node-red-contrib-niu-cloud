@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.1] - 2023-02-07
+### Changed
+
+- Updated dependencies for security reasons
+- Provided examples
+- Compatibility with Scorecard
+
 ## 1.0.0 - 2021-09-09
 ### Added
 
@@ -23,5 +30,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - **Tracks** Get recorded tracks.
 
 
-[Unreleased]: https://github.com/gablau/node-red-contrib-niu-cloud/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/gablau/node-red-contrib-niu-cloud/compare/1.0.1...HEAD
+[1.0.1]: https://github.com/gablau/node-red-contrib-blynk-ws/compare/1.0.0...1.0.1
 

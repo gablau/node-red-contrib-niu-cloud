@@ -71,3 +71,4 @@ typings/
 docs/
 package-lock.json
 .npmignore
+*.csv

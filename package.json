@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-niu-cloud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node-RED library for connect to NIU Cloud for your electric scooter",
   "scripts": {
     "lint": "eslint \"/**/*.{js,json,html}\"",
@@ -10,14 +10,14 @@
   "author": "Gabriele Lauricella <gab.lau@gmail.com> (https://github.com/gablau)",
   "license": "MIT",
   "dependencies": {
-    "niu-cloud-connector": "github:gablau/niu-cloud-connector#afb1c60e9eea1a2f0b47c8b668ecfdbe8f2706aa"
+    "niu-cloud-connector": "github:gablau/niu-cloud-connector#79a55d88d9d82b5c742fec04aae451481f5337ff"
   },
   "devDependencies": {
-    "eslint": "^6.x.x",
-    "eslint-config-airbnb-base": "^14.x.x",
-    "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.x.x",
-    "eslint-plugin-json": "^1.4.0",
+    "eslint": "^8.x.x",
+    "eslint-config-airbnb-base": "^15.x.x",
+    "eslint-plugin-html": "^7.x.x",
+    "eslint-plugin-import": "^2.26.x",
+    "eslint-plugin-json": "^3.x.x",
     "eslint-plugin-progress": "github:gablau/eslint-plugin-progress"
   },
   "keywords": [
@@ -31,9 +31,13 @@
     "vehicle"
   ],
   "node-red": {
+    "version": ">=2.0.0",
     "nodes": {
       "niu-cloud-client": "niu-cloud-client.js",
       "niu-cloud": "niu-cloud.js"
     }
+  },
+  "engines": {
+    "node": ">=12.22.12"
   }
 }

@@ -28,7 +28,7 @@ To install this library please search for "niu" in the node palette
 **FW Version** Get firmware version.\
 **Vehicle position** Get current position of a vehicle.\
 **Update info** Get update information.\
-**Tracks** Get recorded tracks.\
+**Tracks** Get recorded tracks.
 
 For information on the data that all actions return, see the API description [here](https://github.com/BlueAndi/niu-cloud-connector/blob/master/doc/API.md)
 

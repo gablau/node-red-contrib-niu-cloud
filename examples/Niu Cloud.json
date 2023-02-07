@@ -1,0 +1,472 @@
+[
+    {
+        "id": "bc1078d8.3bd6f8",
+        "type": "tab",
+        "label": "Test NIU",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "339e29dd.66526e",
+        "type": "niu-cloud",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "client": "23c673f3591e11f9",
+        "action": "vehicles",
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "e8e111.2b5fb6f"
+            ]
+        ]
+    },
+    {
+        "id": "e8e111.2b5fb6f",
+        "type": "debug",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e35c8689.ea6de8",
+        "type": "inject",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "string"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "339e29dd.66526e"
+            ]
+        ]
+    },
+    {
+        "id": "d7f9a720.090078",
+        "type": "niu-cloud",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "client": "23c673f3591e11f9",
+        "action": "battery-info",
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "96339cd1.0c1b5"
+            ]
+        ]
+    },
+    {
+        "id": "96339cd1.0c1b5",
+        "type": "debug",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4f440e42.750818",
+        "type": "inject",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 300,
+        "wires": [
+            [
+                "d7f9a720.090078"
+            ]
+        ]
+    },
+    {
+        "id": "2fb8f77a.6f0fc",
+        "type": "niu-cloud",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "client": "23c673f3591e11f9",
+        "action": "motor-info",
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "c2155ef4.fa7068"
+            ]
+        ]
+    },
+    {
+        "id": "c2155ef4.fa7068",
+        "type": "debug",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "d70087da.1647b",
+        "type": "inject",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "2fb8f77a.6f0fc"
+            ]
+        ]
+    },
+    {
+        "id": "f2bba8ce.1d7d9",
+        "type": "niu-cloud",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "client": "23c673f3591e11f9",
+        "action": "battery-health",
+        "x": 320,
+        "y": 360,
+        "wires": [
+            [
+                "50cab5d8.b5caec"
+            ]
+        ]
+    },
+    {
+        "id": "50cab5d8.b5caec",
+        "type": "debug",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "394b9c13.a49444",
+        "type": "inject",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "f2bba8ce.1d7d9"
+            ]
+        ]
+    },
+    {
+        "id": "5cca1c6b.d699dc",
+        "type": "niu-cloud",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "client": "23c673f3591e11f9",
+        "action": "fw-version",
+        "x": 310,
+        "y": 420,
+        "wires": [
+            [
+                "dd17b956.178668"
+            ]
+        ]
+    },
+    {
+        "id": "dd17b956.178668",
+        "type": "debug",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "71ee8914.6c288",
+        "type": "inject",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 420,
+        "wires": [
+            [
+                "5cca1c6b.d699dc"
+            ]
+        ]
+    },
+    {
+        "id": "51122159.48f668",
+        "type": "niu-cloud",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "client": "23c673f3591e11f9",
+        "action": "update-info",
+        "x": 310,
+        "y": 540,
+        "wires": [
+            [
+                "7afe4064.331aa8"
+            ]
+        ]
+    },
+    {
+        "id": "7afe4064.331aa8",
+        "type": "debug",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "d3dc6b93.ead48",
+        "type": "inject",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "51122159.48f668"
+            ]
+        ]
+    },
+    {
+        "id": "c8c8b709.69182",
+        "type": "niu-cloud",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "client": "23c673f3591e11f9",
+        "action": "vehicle-pos",
+        "x": 310,
+        "y": 480,
+        "wires": [
+            [
+                "beba49da.60b9c8"
+            ]
+        ]
+    },
+    {
+        "id": "beba49da.60b9c8",
+        "type": "debug",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7909c713.e648b",
+        "type": "inject",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "c8c8b709.69182"
+            ]
+        ]
+    },
+    {
+        "id": "e10e6b0b.d98bf8",
+        "type": "niu-cloud",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "client": "23c673f3591e11f9",
+        "action": "tracks",
+        "x": 290,
+        "y": 600,
+        "wires": [
+            [
+                "e28240c7.b7758"
+            ]
+        ]
+    },
+    {
+        "id": "e28240c7.b7758",
+        "type": "debug",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "7c262522.54f1b4",
+        "type": "inject",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 600,
+        "wires": [
+            [
+                "e10e6b0b.d98bf8"
+            ]
+        ]
+    },
+    {
+        "id": "dc84ef5405bdf1de",
+        "type": "niu-cloud",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "client": "23c673f3591e11f9",
+        "action": "overall-tally",
+        "x": 310,
+        "y": 240,
+        "wires": [
+            [
+                "a41df435ff573dbb"
+            ]
+        ]
+    },
+    {
+        "id": "a41df435ff573dbb",
+        "type": "debug",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 490,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "bf53c38fe30c2540",
+        "type": "inject",
+        "z": "bc1078d8.3bd6f8",
+        "name": "",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "dc84ef5405bdf1de"
+            ]
+        ]
+    },
+    {
+        "id": "23c673f3591e11f9",
+        "type": "niu-cloud-client",
+        "dbg_low": true,
+        "name": "Example Vehicle",
+        "credentials": {}
+    }
+]
