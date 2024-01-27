@@ -16,9 +16,12 @@ module.exports = function (RED) {
 
     this.token = false;
     this.dbg_low = conf.dbg_low;
+    this.dbg_cloud = conf.dbg_cloud;
     this.name = conf.name;
     this.cloud = new niuCloudConnector.Client();
-    // this.cloud.enableDebugMode(true);
+    if(this.dbg_cloud) {
+      this.cloud.enableDebugMode(true);
+    }
 
     this.REFRESH_TOKEN_TIMEOUT_SECONDS = 3;
 

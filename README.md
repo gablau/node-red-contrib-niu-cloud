@@ -1,5 +1,5 @@
 # node-red-contrib-niu-cloud
-![Information Panel](./docs/img/node-red-niu-cloud.png)\
+![Information Panel](./docs/img/node-red-niu-cloud.png)
 
 A [Node-RED](https://nodered.org/) library for connect to NIU Cloud for your electric scooter
 

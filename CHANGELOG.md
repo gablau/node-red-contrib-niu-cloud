@@ -6,7 +6,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.1.0] - 2024-01-27
+### Added
+
+- Option to debug communication with niu cloud
+
+### Changed
+
+- Update `niu-cloud-connector` dependancy
+- Increased minimum Node version to 18.0.0
+- Increased minimum Node-RED version to 3.0.0
+- Update Copyright
+
 ## [1.0.2] - 2023-02-07
+
 ### Changed
 
 - Missing repo links
@@ -35,7 +48,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - **Tracks** Get recorded tracks.
 
 
-[Unreleased]: https://github.com/gablau/node-red-contrib-niu-cloud/compare/1.0.2...HEAD
+[Unreleased]: https://github.com/gablau/node-red-contrib-niu-cloud/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/gablau/node-red-contrib-blynk-ws/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/gablau/node-red-contrib-blynk-ws/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/gablau/node-red-contrib-blynk-ws/compare/1.0.0...1.0.1
 
