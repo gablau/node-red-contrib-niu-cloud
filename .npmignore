@@ -72,3 +72,5 @@ docs/
 package-lock.json
 .npmignore
 *.csv
+.eslintignore
+.eslintrc.json
