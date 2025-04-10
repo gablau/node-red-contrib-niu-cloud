@@ -11,7 +11,6 @@ module.exports = function (RED) {
 
     this.niu_user = (this.credentials) ? this.credentials.niu_user : 'n/a';
     this.niu_password = (this.credentials) ? this.credentials.niu_password : 'n/a';
-    this.countryCode = (this.credentials) ? this.credentials.countryCode : 'n/a';
     this.vehicleSN = (this.credentials) ? this.credentials.vehicleSN : 'n/a';
 
     this.token = false;
@@ -19,7 +18,7 @@ module.exports = function (RED) {
     this.dbg_cloud = conf.dbg_cloud;
     this.name = conf.name;
     this.cloud = new niuCloudConnector.Client();
-    if(this.dbg_cloud) {
+    if (this.dbg_cloud) {
       this.cloud.enableDebugMode(true);
     }
 
@@ -64,7 +63,6 @@ module.exports = function (RED) {
       const loginData = {
         account: node.niu_user,
         password: node.niu_password,
-        countryCode: node.countryCode,
       };
       node.dbglog('Refresh Token...');
       node.cloud.createSessionToken(
@@ -87,7 +85,6 @@ module.exports = function (RED) {
     credentials: {
       niu_user: { type: 'text' },
       niu_password: { type: 'password' },
-      countryCode: { type: 'text' },
       vehicleSN: { type: 'text' },
     },
   });
@@ -105,7 +102,6 @@ module.exports = function (RED) {
     const loginData = {
       account: data.niu_user,
       password: pwd,
-      countryCode: data.countryCode,
     };
 
     const cloud = new niuCloudConnector.Client();

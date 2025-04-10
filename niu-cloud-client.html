@@ -10,10 +10,6 @@
         type: 'password',
         required: true,
       },
-      countryCode: {
-        type: 'text',
-        required: true,
-      },
       vehicleSN: {
         type: 'text',
         required: true,
@@ -91,15 +87,13 @@
         e.preventDefault(); // don't trigger normal click event
 
         if ($('#node-config-input-niu_user.input-error').length > 0
-      || $('#node-config-input-niu_password.input-error').length > 0
-      || $('#node-config-input-countryCode.input-error').length > 0) {
+      || $('#node-config-input-niu_password.input-error').length > 0) {
           return;
         }
 
         const data = {
           niu_user: $('#node-config-input-niu_user').val(),
           niu_password: $('#node-config-input-niu_password').val(),
-          countryCode: $('#node-config-input-countryCode').val(),
         };
 
         tokenUnknow();
@@ -149,7 +143,6 @@
       const trimFields = [
         'user',
         'password',
-        'countryCode',
         'vehicleSN',
       ];
       trimFields.forEach((field) => {
@@ -170,10 +163,6 @@
         <label for="node-config-input-niu_password"><i class="fa fa-key"></i> <span>Password</span></label>
         <input type="password" id="node-config-input-niu_password" placeholder="your password">
     </div>
-    <div class="form-row">
-      <label for="node-config-input-countryCode"><i class="fa fa-phone"></i> <span>Country Code</span></label>
-      <input type="text" id="node-config-input-countryCode" placeholder="Ex. +39">
-  </div>
 
     <div class="form-row">
         <label for="node-config-input-token"><i class="fa fa-bookmark"></i> <span>Token</span></label>

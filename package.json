@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-niu-cloud",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Node-RED library for connect to NIU Cloud for your electric scooter",
   "scripts": {
     "lint": "eslint \"/**/*.{js,json,html}\"",
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/gablau/node-red-contrib-niu-cloud",
   "dependencies": {
-    "niu-cloud-connector": "github:gablau/niu-cloud-connector#1.1.0"
+    "niu-cloud-connector": "github:gablau/niu-cloud-connector#1.2.0"
   },
   "devDependencies": {
     "eslint": "^8.x.x",
