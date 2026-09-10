@@ -1,6 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-underscore-dangle */
-// eslint-disable-next-line func-names
 module.exports = function (RED) {
   function NiuCloudNode(config) {
     RED.nodes.createNode(this, config);

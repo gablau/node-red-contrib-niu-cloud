@@ -6,6 +6,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.1] - 2026-09-11
+
+### Changed
+- Updated dependencies
+- Migrated linting to ESLint 10 flat config (`eslint.config.mjs`); `eslint-config-airbnb-base` replaced by `@eslint/js`, `eslint-plugin-json` by `@eslint/json`, `eslint-plugin-html` by `@html-eslint`
+- Removed `eslint-plugin-import`, `eslint-plugin-progress` and the legacy `.eslintrc.json` / `.eslintignore`
+- Update Copyright
+
 ## [1.2.0] - 2025-04-10
 
 ### Changed
@@ -52,8 +60,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
     - **Tracks** Get recorded tracks.
 
 
-[Unreleased]: https://github.com/gablau/node-red-contrib-niu-cloud/compare/1.2.0...HEAD
-[1.2.0]: https://github.com/gablau/node-red-contrib-blynk-ws/compare/1.1.0...1.2.0
+[Unreleased]: https://github.com/gablau/node-red-contrib-niu-cloud/compare/1.2.1...HEAD
+[1.2.1]: https://github.com/gablau/node-red-contrib-niu-cloud/compare/1.2.0...1.2.1
+[1.2.0]: https://github.com/gablau/node-red-contrib-niu-cloud/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/gablau/node-red-contrib-blynk-ws/compare/1.0.2...1.1.0
 [1.0.2]: https://github.com/gablau/node-red-contrib-blynk-ws/compare/1.0.1...1.0.2
 [1.0.1]: https://github.com/gablau/node-red-contrib-blynk-ws/compare/1.0.0...1.0.1

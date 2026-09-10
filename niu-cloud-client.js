@@ -1,9 +1,6 @@
-/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
 const niuCloudConnector = require('niu-cloud-connector');
 
-// eslint-disable-next-line func-names
 module.exports = function (RED) {
   function NiuCloudClientNode(conf) {
     const node = this;
